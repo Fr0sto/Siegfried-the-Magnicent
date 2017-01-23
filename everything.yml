@@ -1,0 +1,309 @@
+questInfo:
+	- name: Siegfried the Magnificent
+	startingLevel: 98
+	starter: ‘Tokelarch’
+	xp: 4200000
+	questStages:
+		- ‘Talk to Tokelarch at 1031 112 -4544’ #Stage 1
+		- ‘Talk to Uncle Gyrodeli near the airship departure area in Ahmsord’ #Stage 2
+		- ‘Talk to Yewesal in Ahmsord at 1028 110 -4592’ #Stage 3
+		- ‘Find Siegfried^s camp east of Ahmsord’ #Stage 4
+		- ‘Report back to Gyrodeli’ #Stage 5
+		- ‘Find the warlock at 892 -4489’ #Stage 6
+		- ‘Confront Siegfried at his camp’ #Stage 7
+		- ‘Tell Gyrodeli what happened’ #Stage 8
+	successMessages:
+		- ‘&6[Quest Completed: Siegfried the Magnificent]’
+		- ‘&7[+2400000 Experience Points]’
+		- ‘&7[+12288 Emeralds]’
+		- ‘&7[+Siegfried Diary Collection]’
+	
+
+
+npc:
+- name: Tokelarch 
+  quest: Siegfried the Magnificent
+  coords: 1031,112,-4544
+  occupation: Farmer
+  baby: true
+      	
+  ## Messages ##
+  fallBackMessage: 'TokelarchFallback' 
+  repeatMessage: ‘null'
+  greetMessage: ‘TokelarchGreet’
+  nearbyMessage: 'null'
+  lowStageMessage: 'TokelarchLowStage'
+  lowLevelMessage: ‘TokelarchLowLevel'
+
+stages:
+	1: TokelarchMessagesStage1
+requirements:
+	1: 0,0,0
+rewards:
+	1: 0,0,0
+	
+
+-title: TokelarchMessagesStage1
+strings: 
+	- ’&2: &aHey Mister, did you hear about Siegfried, the great adventurer of Gavel?’
+	- ‘&2Tokelarch: &aYesterday my mommy and I read in the paper that he fought a mighty dragon in Ahmsord for 10 days, and only lost an eye! ‘
+
+	- ‘&2Tokelarch: &aEveryone across Gavel is celebrating his victory!’
+	- ‘&2Tokelarch: &aWell it was nice talking to you Mister, if you^d like to hear more you can talk to my Uncle Gyrodeli near the Ahmsord airship departure area, he knows everything about Siegfried!’
+	- ‘&7[New Quest Started: Siegfried the Magnificent]’
+delay: 5
+
+-title: TokelarchFallBack
+strings: 
+	- ‘&2Tokelarch: &aHi again, did you talk to my uncle?’
+delay: 5
+
+-title: TokelarchMessagesGreet
+strings: 
+	- ‘&2Tokelarch: &aHi there!’
+delay: 5
+
+-title: TokelarchLowStage
+strings: 
+	- ‘&2Tokelarch: &aHi there!’
+delay: 5
+
+-title: TokelarchLowLevel
+strings: 
+	- ‘&2Tokelarch: &aYou look a little under-geared for this city, maybe you should come back when you^re level 98!’
+delay: 5
+
+
+- name: Gyrodeli 
+  quest: Siegfried the Magnificent
+  coords: 1094 128 -4544
+  occupation: Farmer
+  baby: false
+      	
+  ## Messages ##
+   fallBackMessage: 'null' 
+  repeatMessage: ‘GyrodeliRepeat'
+  greetMessage: ‘GyrodeliMessagesGreet’
+  nearbyMessage: 'null'
+  lowStageMessage: 'null'
+  lowLevelMessage: 'null'
+
+stages:
+	1: GyrodeliMessagesStage2
+	5. GyrodeliMessagesStage5
+	8: GyrodeliMessagesStage8
+rewards: 
+	8. 4200000 Experience Points, 12288 Emerads, Siegfried Complete Diaries
+	
+
+-title: GyrodeliMessagesStage2
+strings: 
+	- ‘&2Gyrodeli: &aWhat do you want.’
+	- ‘&2Gyrodeli: &aOh, you are a Siegfried fan? Please have a seat!’
+	- ‘&2Gyrodeli: &aFor the last 15 years or so, Siegfried the magnificent has been the talk of every year! Always performing more heroic deeds, it never ends!’
+	- ‘&2Gyrodeli: &aI was a huge fan, until I realized that nobody I heard mentioning him had actually seen the deed being performed, it was always someone telling the tale that someone else had told them.’
+	- ‘&2Gyrodeli: &aEver since I realized this, I have been deeply suspicious of everything I hear about him. I want to get to the bottom of it.’
+	- ‘&2Gyrodeli: &aUnfortunately I am getting old, and can^t risk traveling the lands as I used to.
+	- ‘&2Gyrodeli: &aYou however are in your prime, a legendary warrior of Wynn! If you would be willing, you could find Siegfried and discover the truth…’
+	- ‘&2Gyrodeli: &aYou will? Fantastic! Last I heard of him, he had killed a dragon right here in Ahmsord, so you might want to check around to ask where he is… Make sure to report back to me if you find anything!’
+	- '&7[Quest Book Updated]’
+delay: 5
+
+-title: GyrodeliMessagesStage5
+strings: 
+	- ‘&2Gyrodeli: &aYou saw Siegfried? What was he like? Was he as strong as Bob? Were you intimidated? Did he have the head of the dragon as a trophy?’
+ 	- ‘&2Gyrodeli: &aOh, so he looked like a regular man? And no dragon head? Hmmm…’
+	- ‘&2Gyrodeli: &aHe tried to wipe your memory? Surely you^re joking!’
+	- ‘&2Gyrodeli: &aIf you speak the truth, it may be that my suspicions are confirmed.’
+	- ‘&2Gyrodeli: &aHe must be taking credit for the accomplishments of other adventurers, and then wiping their memories with his “Oblate VII”, as you say he called it.’
+	- ‘&2Gyrodeli: &aWe must handle this discreetly, if Siegfried being a fake became known, all of Gavel would be in a state of panic.’
+	- ‘&2Gyrodeli: &aI know of a Warlock who lives as a hermit near Kandon-Beda who can make you a charm that will reflect any spell thrown at it! With such a charm, you could make Siegfried Oblate VII himself!’
+	- '&7[Quest Book Updated]’
+delay: 5
+
+-title: GyrodeliMessagesStage8
+strings: 
+	- ‘&2Gyrodeli: &aYou were successful? How wonderful!’
+	- ‘&2Gyrodeli: &aIt^s okay, I will take care of Siegfried. Shouldn^t be too hard.’
+	- ‘&2Gyrodeli: &aAh yes, I almost forgot! Since you^ve worked so hard, here is part of my fortune. I know it will serve a mighty warrior better than an old man!’
+	- '&7[Quest Book Updated]’
+delay: 5
+
+-title: GyrodeliFallBack
+strings: 
+	- ‘null’
+-title: GyrodeliMessagesGreet
+strings: 
+	- ‘&2Gyrodeli: &aHave you come to check on Siegfried, old friend?’
+delay: 5
+
+-title: GyrodeliLowStage
+strings: 
+	- ‘null’
+-title: GyrodeliLowLevel
+strings: 
+	- ‘null’
+
+
+- name: Yewisal
+  quest: Siegfried the Magnificent
+  coords: 1024 110 -4590
+  occupation: Farmer
+  baby: false
+      	
+  ## Messages ##
+  fallBackMessage: 'YewisalFallBack' 
+  repeatMessage: ‘null'
+  greetMessage: ‘YewisalMessagesGreet’
+  nearbyMessage: 'null'
+  lowStageMessage: 'null'
+  lowLevelMessage: 'null'
+
+stages:
+	3. YewisalMessagesStage3
+
+- title: YewisalMessagesStage3
+strings: 
+	- ‘&2 Yewisal: &aCOME HERE TO BUY YOUR PAPER!’
+	- ‘&2 Yewisal: &aCOME HERE TO SEE THE STORY OF HOW SIEGFRIED DEFEATED THE DRAGON!’
+	- ‘&2 Yewisal: &aCOME HE- Oh, sorry sir I didn’t see you there. Do you want to buy a paper?’
+	- ‘&2 Yewisal: &aWhere is Siegfried? Well, I^m just a paper boy, but last I heard he was camped out deep in the Sky Islands, east of here. He loves the color Lilac, maybe that could help!’
+	- '&7[Quest Book Updated]’
+delay: 5
+
+- title: YewisalFallBack
+strings: 
+	- ‘&2Yewisal: &aWant to buy a paper?’
+delay: 5
+
+- title: YewisalMessagesGreet
+strings: 
+	- ‘&2Yewisal: &aGo away, I^m on break.’
+delay: 5
+
+- title: YewisalLowStage
+strings: 
+	- ‘null’
+- title: YewisalLowLevel
+strings: 
+	- ‘null’
+
+- name: Drumbedole
+  quest: Siegfried the Magnificent
+  coords: 892 98 -4489
+  occupation: Farmer
+  baby: false
+      	
+  ## Messages ##
+   fallBackMessage: 'DrumbedoleFallBack' 
+  repeatMessage: ‘DrumbedoleRepeat’
+  greetMessage: ‘DrumbedoleMessagesGreet’
+  nearbyMessage: 'null'
+  lowStageMessage: 'null'
+  lowLevelMessage: 'null'
+
+stages:
+	6. DrumbedoleMessagesStage6
+requirements:
+	6. &3[40 Emerald Block]
+rewards:
+	6. 1 Amulet of Reflection
+
+- title: DrumbedoleMessagesStage6
+strings: 
+	- ‘&2Drumbedole: &aUGH, I bet you^re another adventurer that needs my help. What^s the point of living alone if everyone comes to me?’
+	- ‘&2Drumbedole: &aA spell reflection charm you say? Hmm, I haven’t made such a thing since my adventuring days.’
+	- ‘&2Drumbedole: &aYou^re in luck kid, I have everything I need to make it. But magical ingredients aren’t cheap, I’m going to need &3[40 Emerald Block] for the charm.’
+	- ‘&2Drumbedole: &aAlright kid, this should do the trick. Just wear it around your neck and any negative spell thrown your way will bounce right back off. Try not to cause too much trouble with it….’
+	- '&7[Quest Book Updated]’
+delay: 5
+
+- title: DrumbedoleFallBack
+strings: 
+	- ‘&2Drumbedole: &aGet out!’
+delay: 5
+
+- title: DrumbedoleMessagesGreet
+strings: 
+	- ‘&2Drumbedole: &aGet out!’
+delay: 5
+
+- title: DrumbedoleLowStage
+strings: 
+	- ‘&2Drumbedole: &aGet out!’
+delay: 5
+
+- title: DrumbedoleLowLevel
+strings: 
+	- ‘&2Drumbedole: &aGet out! I only help level 98 players.’
+delay: 5
+
+- title: DrumbedoleRepeat
+strings:
+	- ‘&2Drumbedole: &aPlease bring me &3[40 Emerald Block]!
+delay: 5
+
+
+
+- name: Siegfried
+  quest: Siegfried the Magnificent
+  coords: 1440 -1701
+  occupation: Farmer
+  baby: false
+      	
+  ## Messages ##
+  fallBackMessage: 'null' 
+  repeatMessage: ‘null'
+  greetMessage: ‘SiegfriedMessagesGreet’
+  nearbyMessage: 'null'
+  lowStageMessage: 'null'
+  lowLevelMessage: 'null'
+
+stages:
+	4. SiegfriedMessagesStage4
+	7. SiegfriedMessagesStage7
+
+- title: SiegfriedMessagesStage4
+strings: 
+	- ‘&2Siegfried: &aHow did you find me, and what do you want?’
+	- ‘&fYou ask why Siegfried doesn’t appear more beat up, considering the fact that he just took down a mighty dragon and all. You also inquire about the whole “lost an eye” matter, because he clearly has both of his eyes.’
+	- ‘&2Siegfried: &aUh, I was so powerful that the dragon couldn’t touch me of course! What? Dragon’s breath fire? This one uhhh, breathed, uhh it didn’t breath fire. And it was small. How about you look at my merchandise!’
+	- ‘&2Siegfried: &aHere, have an autograph, now please leave me alone while I finish brewing this batch of Oblate VII.’
+	- ‘&2Siegfried: &aWhat is Oblate VII? Only the greatest memory potion in the world, makes the recipient forget everything! They then have to be cared for like a baby for the rest of their pathetic lives! HA!’
+	- ‘&2Siegfried: &aMmmmm, probably shouldn’t have said that. I should NOT have said that.. Now please leave, here do you want a signed book about me defeating the troll horde in LLevigar?’
+	- ‘&2Siegfried: &aIf you do not leave, I will be forced to make you leave.’
+	- ‘&fYou comment on his weak appearance, and Siegfried angrily flings some Oblate VII at your face, as you dodge, and make a quick exit.’
+	- ‘&2Siegfried: &aYOU^LL NEVER GET BACK TO AHMSORD ALIVE! I^LL GET YOU!’
+	- '&7[Quest Book Updated]’
+delay: 6
+
+- title: SiegfriedMessagesStage7
+strings:
+	- ‘&2Siegfried: &aYOU AGAIN! COME HERE!’
+	- ‘&fFrom a safe distance, you Siegfried out for the fraud that he is, saying that you know everything.’
+	- ‘&2Siegfried: &aCURSE YOU MEDDLING WYNN FOLK, WHY DON^T I GIVE YOU A TASTE OF MY MEDICINE!’
+	- ‘&fSiegfried hurls an entire cauldron of OBLATE VII at you, but it ends up being him that gets a face full of it.’
+	- ‘&2Siegfried: &aWHAT TRICKERY IS THIS?’
+	- ‘&2Siegfried: &aYOU HAVE RUINED EVERYTHING! I^LL GET You for thi-‘
+	- ‘&2Siegfried: &aWho am I? Who are you? Where is my mommy and daddy?’
+	- ‘&fAs Siegfried sobs like a baby, you haul him onto your horse and make your way back to Gyrodeli.’
+	- '&7[Quest Book Updated]’
+delay: 5
+
+- title: SiegfriedFallBack
+strings: 
+	- ‘null’
+- title: SiegfriedMessagesGreet
+strings: 
+	- ‘&2Siegfried: &aDo you want an autograph or what?’
+delay: 5
+
+- title: SiegfriedLowStage
+strings: 
+	- ‘&2Siegfried: &aDo you want an autograph or what?’
+delay: 5
+
+- title: SiegfriedLowLevel
+strings: 
+	- ‘&2Siegfried: &aDo you want a signed book? Oh I^m sorry, you^re too low level for this. I only serve level 98^s!’
+delay: 5
